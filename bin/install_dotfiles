@@ -14,9 +14,10 @@ echo 🪄 Updating submodules...
 $config submodule update --init --recursive
 
 echo 🪄 Configuring firefox...
-echo Home is: $HOME
 ff_default_dir=$(find .mozilla/firefox -type d -name *.default)
-ln -sf $HOME/.mozilla/firefox/user_config $ff_default_dir/chrome
+unlink $HOME/$ff_default_dir/chrome
+ln -sf $HOME/.mozilla/firefox/user_config $HOME/$ff_default_dir/chrome
+unlink $HOME/.mozilla/firefox/user_config/chrome
 ln -sf $HOME/.mozilla/firefox/git/firefox-csshacks $HOME/.mozilla/firefox/user_config/chrome
 
 echo 🪄 Done!
