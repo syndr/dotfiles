@@ -1,2 +1,31 @@
 # dotfiles
-Where the dot is
+
+This repository encompasses my general workstation setup, and is meant to contain the full working configuration from new install to production machine.
+
+It makes use of the excellent versioning strategy outlined [here](https://www.atlassian.com/git/tutorials/dotfiles).
+
+# Installation
+
+Create yourself a custom `config` command:
+```
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+```
+
+Make sure we avoid death by recursion:
+```
+echo ".cfg" >> .gitignore
+```
+
+And clone this repo into a bare repository:
+```
+git clone --bare git@github.com:syndr/dotfiles.git $HOME/.cfg
+```
+
+You can now checkout the actual content with:
+```
+config checkout
+```
+
+**Profit!**
+
+
