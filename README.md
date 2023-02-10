@@ -11,6 +11,11 @@ Create yourself a custom `config` command:
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ```
 
+Configure your custom `config` command:
+```
+config config --local status.showUntrackedFiles no
+```
+
 Make sure we avoid death by recursion:
 ```
 echo ".cfg" >> .gitignore

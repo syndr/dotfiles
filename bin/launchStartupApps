@@ -4,14 +4,12 @@
 
 
 startupApps=(
-    "compton -b"
+    "picom -b"
     "nitrogen --restore"
     "xscreensaver -no-splash"
     "/usr/libexec/geoclue-2.0/demos/agent"
     "redshift-gtk"
     "nm-applet"
-    "xfsettingsd --sm-client-disable --replace"
-    "lxpolkit"
     )
 
 

@@ -1,0 +1,344 @@
+
+" Turn on syntax highlighting
+syntax on
+
+
+" Vundle (vim plugin manager) specific stuff
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+
+" Syntax checking for common programming languages:  https://vimawesome.com/plugin/syntastic
+Plugin 'scrooloose/syntastic'
+
+" Show file system tree:   https://vimawesome.com/plugin/nerdtree-red
+Plugin 'scrooloose/nerdtree'
+"Plugin 'xuyuanp/nerdtree-git-plugin'
+
+" Extra tools to comment stuff out:  https://vimawesome.com/plugin/commentary-vim
+Plugin 'tpope/vim-commentary'
+
+" Tool to fix indentation of stuff:  https://vimawesome.com/plugin/tabular
+Plugin 'godlygeek/tabular'
+
+" Git command support in VIM!    https://vimawesome.com/plugin/fugitive-vim
+Plugin 'tpope/vim-fugitive'
+
+" Show git diffs while editing files:   https://vimawesome.com/plugin/vim-gitgutter                ---- not currently working?
+Plugin 'airblade/vim-gitgutter'
+
+" Show tags in sidebar (show overview of file structure): https://vimawesome.com/plugin/tagbar
+Plugin 'majutsushi/tagbar'
+
+" Show file icons where appropriate:  https://vimawesome.com/plugin/vim-devicons
+Plugin 'ryanoasis/vim-devicons'
+
+" Autosave and persistant workspaces:   https://vimawesome.com/plugin/vim-workspace
+Plugin 'thaerkh/vim-workspace'
+
+" Visualize undo tree:   https://vimawesome.com/plugin/undotree-vim
+Plugin 'mbbill/undotree'
+
+" Automatically detect paste and set paste mode:  https://vimawesome.com/plugin/vim-paste-easy
+Plugin 'roxma/vim-paste-easy'
+
+" Run individual files with sudo from within vim:  https://vimawesome.com/plugin/sudo-vim
+"  Open file with 'e: sudo:<filepath>
+Plugin 'sudo.vim'
+
+" Highlight yanked text:   https://vimawesome.com/plugin/vim-highlightedyank
+Plugin 'machakann/vim-highlightedyank'
+
+" Better integration with focus events in tmux:     https://github.com/tmux-plugins/vim-tmux-focus-events
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
+" Detect key mapping conflicts with ':CheckMappingConflicts':   https://vimawesome.com/plugin/vim-mapping-conflicts ---- appears broken currently
+" Plugin 'lukhio/vim-mapping-conflicts'
+
+" Fuzzy file/tab finder: https://vimawesome.com/plugin/ctrlp-vim-everything-has-changed
+"Plugin 'ctrlpvim/ctrlp.vim'
+
+" Show tab selection window:  https://vimawesome.com/plugin/ctrlp-smarttabs
+"Plugin 'davidegx/ctrlp-smarttabs'
+
+" Expanded multi-select abilities:   https://vimawesome.com/plugin/vim-visual-multi
+Plugin 'mg979/vim-visual-multi'
+
+" Plugin for autocomplete
+"  Note that this has a compiled component, see here: https://ycm-core.github.io/YouCompleteMe/
+Plugin 'https://github.com/Valloric/YouCompleteMe.git'
+
+" Additional languanges for sytax highlighting
+Plugin 'sheerun/vim-polyglot'
+
+" CSV display support
+Plugin 'chrisbra/csv.vim'
+
+" Powerline status bar
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Vim-Airline status bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Rainbow color parentheses:  https://vimawesome.com/plugin/rainbow-parentheses-vim         --- this doesn't seem to work
+"Plugin 'kien/rainbow_parentheses.vim'
+
+" Rainbow color parenthesis (better):    https://vimawesome.com/plugin/rainbow-you-belong-with-me     ---   this conflicts with syntax highlighting?
+Plugin 'luochen1990/rainbow'
+
+" Show indent levels in code:   https://vimawesome.com/plugin/indent-guides           ---- doesn't seem to work in NeoVim
+"Plugin 'nathanaelkane/vim-indent-guides'
+
+" Show indent levels in code:   https://vimawesome.com/plugin/vim-indentguides
+Plugin 'thaerkh/vim-indentguides'
+
+" Better tabs and such: https://github.com/romgrk/barbar.nvim
+"Plugin 'kyazdani42/nvim-web-devicons'
+"Plugin 'romgrk/barbar.nvim'
+
+" Colorschemes
+Plugin 'EdenEast/nightfox.nvim'
+Plugin 'sainnhe/sonokai'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'TroyFletcher/vim-colors-synthwave'
+Plugin 'mr-ubik/vim-hackerman-syntax'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" Set Airline things
+let g:airline_powerline_fonts = 1
+let g:airline_theme='distinguished'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" Set default paper size
+set printoptions=paper:letter
+
+" Don't show default mode indicator
+set noshowmode
+
+" Map key to toggle opt
+function MapToggle(key, opt)
+  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+  exec 'nnoremap '.a:key.' '.cmd
+  exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+command -nargs=+ MapToggle call MapToggle(<f-args>)
+
+" Toggle mouse support
+function! ToggleMouse()
+    " check if mouse is enabled
+    if &mouse == 'a'
+        " disable mouse & linenumbers
+        set mouse=
+        set nonumber
+        return 'False'
+    else
+        " enable linenumbers & mouse everywhere
+        set mouse=a
+        set number
+        return 'True'
+    endif
+endfunc
+
+
+" use colorset for dark backgrounds
+set background=dark
+colorscheme hackerman
+
+" Set popup selection colors to something nice
+highlight Pmenu ctermfg=15 ctermbg=234 guifg=#ffffff guibg=#414141
+
+" This makes vim transparent in terminal by default
+hi Normal guibg=NONE ctermbg=NONE
+
+" Use many colors!
+set t_Co=256
+
+let t:is_transparent = 0
+function! Toggle_transparent()
+   if t:is_transparent == 0
+       if has ('gui_running')
+           " Sets gVim to transparent
+           :silent !transset -a --dec 0.15 
+       else
+           " Sets vim to opaque
+           set background=dark
+       endif
+       let t:is_transparent = 1
+   else
+       if has ('gui_running')
+           " Sets gVim to opaque
+           :silent !transset -a --max 1 
+       else
+           " Sets vim to transparent
+           hi Normal guibg=NONE ctermbg=NONE
+           hi SignColumn ctermbg=NONE
+           let g:gitgutter_set_sign_backgrounds = 1
+       endif
+       let t:is_transparent = 0
+   endif
+endfunction
+nnoremap <C-t> : call Toggle_transparent()<CR>
+
+" Set SignColumn background to same as line numbers
+"highlight! link SignColumn LineNr
+highlight SignColumn ctermbg=NONE
+let g:gitgutter_set_sign_backgrounds = 1
+
+" Show 2 high status bar (shows powerline statusbar if installed)
+set laststatus=2
+
+" Activate paste mode on keypress (no auto indent)
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+" Turn on line numbering by default (need clipboard integration for this to be good
+set number
+
+" Enable mouse support
+set mouse=a
+nnoremap <F3> :call ToggleMouse() <CR>
+imap <F3> <C-O><F3>
+
+" Fix mouse resizing of windows within tmux & similar
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
+
+" Use xterm arrow keys for Ctrl + arrow word skipping in insert mode
+execute "set <xUp>=\e[1;*A" 
+execute "set <xDown>=\e[1;*B"
+execute "set <xRight>=\e[1;*C"
+execute "set <xLeft>=\e[1;*D"
+
+
+" Toggle workspaces on or of using 's'
+nnoremap <leader>s :ToggleWorkspace<CR>
+
+" Show undo tree using 'F5'
+nnoremap <F5> :UndotreeToggle<cr>
+
+"" NerdTree stuff
+" Open tree automatically if no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open tree automatically if vim is run on a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" Toggle tree with F1
+map <F1> :NERDTreeToggle<CR>
+" Need this to close vim easily if tree is still open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Show line indentation by default
+let g:indent_guides_enable_on_vim_startup = 1
+
+" Rainbow parentheses always on
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
+
+" SmartTabs stuff
+"let g:ctrlp_extensions = ['smarttabs']
+"nnoremap <F1> :CtrlPSmartTabs<CR>
+"nnoremap <F4> :CtrlP<CR>
+
+" Always show sign column (for diff, etc)
+"let g:gitgutter_sign_column_always = 1
+
+
+" Toggle tag bar
+nmap <F8> :TagbarToggle<CR>
+
+" Basic syntax checking
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+" Note that these are external checkers and need to be installed on your system
+"  flake8 uses ~/.config/flake8 config file. IE: add 'max-line-length = 120'
+"  under [flake8] heading to set expected line length to 120
+let g:syntastic_python_checkers = ['flake8']
+" Keybind to run sytax check
+nmap <F9> :SyntasticCheck<CR>
+
+"" Buffer commands (think of like tabs)
+" To open a new empty buffer
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>] :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>[ :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
+" Allow to switch buffers without saving, but prompt before closing vim
+set hidden
+set confirm
+
+" Toggle workspace mode with '\+s'
+nnoremap <leader>s :ToggleWorkspace<CR>

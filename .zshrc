@@ -6,6 +6,9 @@ alias ll='exa -lhgum --git'
 # For git dotfiles configuration
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# Use exa for ll, as it's super nice (you have to install exa)
+alias ll='exa -lhgum --git'
+
 source ~/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
