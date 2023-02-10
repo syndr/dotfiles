@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Start the listed applications only if they are not already running.
+
+
+startupApps=(
+    "compton -b"
+    "nitrogen --restore"
+    "xscreensaver -no-splash"
+    "/usr/libexec/geoclue-2.0/demos/agent"
+    "redshift-gtk"
+    "nm-applet"
+    "xfsettingsd --sm-client-disable --replace"
+    "lxpolkit"
+    )
+
+
+# Start the application passed to this function
+function startApp () {
+    input=$1
+    # get only app name
+    appName="${input##*/}"
+    appName="${appName%% *}"
+
+    if  pgrep -x $appName > /dev/null
+    then
+        echo Application $appName is already running!
+    else
+        echo Application $appName is not running. Running command $input
+        $input &
+    fi
+}
+
+for app in "${startupApps[@]}"
+do
+    startApp "$app"
+done
+
+echo All applications started. Disowning processes...
+
+disown
+
+echo Done!
+
+exit 0
