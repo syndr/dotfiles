@@ -3,16 +3,20 @@
 # Do setup steps for the dotfiles configuration
 #
 
+config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
 cd ~
 
 echo 🪄 Updating repo...
-config pull
+$config pull
 
 echo 🪄 Updating submodules...
-config submodule update --init --recursive
+$config submodule update --init --recursive
 
 echo 🪄 Configuring firefox...
+echo Home is: $HOME
 ff_default_dir=$(find .mozilla/firefox -type d -name *.default)
-ln -s .mozilla/firefox/user_config $ff_default_dir/chrome
+ln -sf $HOME/.mozilla/firefox/user_config $ff_default_dir/chrome
+ln -sf $HOME/.mozilla/firefox/git/firefox-csshacks $HOME/.mozilla/firefox/user_config/chrome
 
 echo 🪄 Done!
