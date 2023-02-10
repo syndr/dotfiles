@@ -1,0 +1,18 @@
+#!/bin/env bash
+
+# Do setup steps for the dotfiles configuration
+#
+
+cd ~
+
+echo 🪄 Updating repo...
+config pull
+
+echo 🪄 Updating submodules...
+config submodule update --init --recursive
+
+echo 🪄 Configuring firefox...
+ff_default_dir=$(find .mozilla/firefox -type d -name *.default)
+ln -s .mozilla/firefox/user_config $ff_default_dir/chrome
+
+echo 🪄 Done!
