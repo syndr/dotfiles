@@ -129,7 +129,7 @@ Plugin 'EdenEast/nightfox.nvim'
 Plugin 'sainnhe/sonokai'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'TroyFletcher/vim-colors-synthwave'
-Plugin 'mr-ubik/vim-hackerman-syntax'
+Plugin 'syndr/vim-hackerman-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
