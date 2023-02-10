@@ -13,6 +13,9 @@ $config pull
 echo 🪄 Updating submodules...
 $config submodule update --init --recursive
 
+echo Installing Starship
+bin/install_starship
+
 echo 🪄 Configuring firefox...
 ff_default_dir=$(find .mozilla/firefox -type d -name *.default)
 unlink $HOME/$ff_default_dir/chrome
