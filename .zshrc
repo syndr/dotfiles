@@ -1,4 +1,4 @@
-export TERM='xterm-256color'
+export TERM='screen-256color'
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 alias ll='exa -lhgum --git'
