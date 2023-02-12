@@ -1,4 +1,4 @@
-export TERM='screen-256color'
+#export TERM='screen-256color'
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 alias ll='exa -lhgum --git'
@@ -50,7 +50,12 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # use gallois theme
 #antigen theme gallois
 
+# Show inline autosuggestions
+antigen bundle zsh-users/zsh-autosuggestions
+
 # Tell antigen that you're done.
 antigen apply
 
 eval "$(starship init zsh)"
+
+eval "$(mcfly init zsh)"
