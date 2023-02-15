@@ -1,13 +1,6 @@
 #export TERM='screen-256color'
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
-alias ll='exa -lhgum --git'
-
-# For git dotfiles configuration
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-# Use exa for ll, as it's super nice (you have to install exa)
-alias ll='exa -lhgum --git'
 
 source ~/.antigen/antigen.zsh
 
@@ -55,6 +48,15 @@ antigen bundle zsh-users/zsh-autosuggestions
 
 # Tell antigen that you're done.
 antigen apply
+
+# For git dotfiles configuration
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Use exa for ll, as it's super nice (you have to install exa)
+alias ll='exa -lhgum --git'
+
+# Kubernetes things
+alias k='kubectl'
 
 eval "$(starship init zsh)"
 
