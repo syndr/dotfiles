@@ -21,7 +21,7 @@ ff_default_dir=$(find .mozilla/firefox -type d -name *.default)
 unlink $HOME/$ff_default_dir/chrome
 ln -sf $HOME/.mozilla/firefox/user_config $HOME/$ff_default_dir/chrome
 unlink $HOME/.mozilla/firefox/user_config/chrome
-ln -sf $HOME/.mozilla/firefox/git/firefox-csshacks $HOME/.mozilla/firefox/user_config/chrome
+ln -sf $HOME/.mozilla/firefox/git/firefox-csshacks/chrome $HOME/.mozilla/firefox/user_config/chrome
 
 echo 🪄 Installing Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
