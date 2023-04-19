@@ -4,12 +4,13 @@
 
 
 startupApps=(
-    "picom -b"
     "nitrogen --restore"
     "xscreensaver -no-splash"
     "/usr/libexec/geoclue-2.0/demos/agent"
     "redshift-gtk"
-    "nm-applet"
+    "copyq"
+    "/usr/libexec/kf5/polkit-kde-authentication-agent-1"
+    "barrier"
     )
 
 
