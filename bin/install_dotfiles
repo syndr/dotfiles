@@ -17,7 +17,7 @@ echo Installing Starship
 bin/install_starship
 
 echo 🪄 Configuring firefox...
-ff_default_dir=$(find .mozilla/firefox -type d -name *.default)
+ff_default_dir=$(find .mozilla/firefox -type d -name *.default*)
 unlink $HOME/$ff_default_dir/chrome
 ln -sf $HOME/.mozilla/firefox/user_config $HOME/$ff_default_dir/chrome
 unlink $HOME/.mozilla/firefox/user_config/chrome
@@ -29,5 +29,12 @@ echo 🪄 Installing Homebrew
 echo 🪄 Installing McFly
 brew tap cantino/mcfly
 brew install cantino/mcfly/mcfly
+
+echo Installing Antigen
+mkdir ~/.antigen
+curl -L git.io/antigen > ~/.antigen/antigen.zsh
+
+echo Installing Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo 🪄 Done!
