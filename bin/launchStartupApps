@@ -12,6 +12,7 @@ startupApps=(
     "/usr/libexec/kf5/polkit-kde-authentication-agent-1"
     "barrier"
     "nm-applet"
+    "flameshot"
     )
 
 
