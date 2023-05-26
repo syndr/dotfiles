@@ -1,4 +1,5 @@
 export TERM='xterm-256color'
+export EDITOR='/usr/bin/nvim'
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/linuxbrew/.linuxbrew/bin
 
