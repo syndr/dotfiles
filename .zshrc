@@ -47,8 +47,14 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Show inline autosuggestions
 antigen bundle zsh-users/zsh-autosuggestions
 
+# Use asdf version manager completions
+antigen bundle kiurchv/asdf.plugin.zsh
+
 # Tell antigen that you're done.
 antigen apply
+
+# Set GOROOT to work with asdf versions
+. ~/.asdf/plugins/golang/set-env.zsh
 
 # For git dotfiles configuration
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
