@@ -75,3 +75,6 @@ export LS_COLORS
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+export RANGER_DEVICONS_SEPARATOR='  '
+
