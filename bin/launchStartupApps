@@ -4,7 +4,6 @@
 
 
 startupApps=(
-    "nitrogen --restore"
     "xscreensaver -no-splash"
     "/usr/libexec/geoclue-2.0/demos/agent"
     "redshift-gtk"
@@ -13,6 +12,9 @@ startupApps=(
     "barrier"
     "nm-applet"
     "flameshot"
+    "~/bin/setTouchpadSettings"
+    "autorandr --change"
+    "nitrogen --restore"
     )
 
 

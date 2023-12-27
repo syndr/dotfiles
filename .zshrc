@@ -65,6 +65,9 @@ alias ll='exa -lhgum --git'
 # Kubernetes things
 alias k='kubectl'
 
+# Run things on the nvidia gpu
+alias nvexec='__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia'
+
 eval "$(starship init zsh)"
 
 # MCFly shell history management: https://github.com/cantino/mcfly
