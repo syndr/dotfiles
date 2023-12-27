@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Fix the external screen layout
+
+echo Flipping the table...
+xrandr --output eDP-1 --mode 1920x1200 --pos 0x534 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --mode 2560x1440 --pos 1920x0 --rotate right --output DP-3 --off --output DP-4 --off --output DP-5 --off --output DP-4-1 --mode 2560x1440 --pos 7200x0 --rotate right --output DP-4-2 --primary --mode 3840x2160 --pos 3360x400 --rotate inverted --output DP-4-3 --off
+
+sleep 5
+
+echo Picking things back up...
+xrandr --output eDP-1 --mode 1920x1200 --pos 0x534 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --mode 2560x1440 --pos 1920x0 --rotate right --output DP-3 --off --output DP-4 --off --output DP-5 --off --output DP-4-1 --mode 2560x1440 --pos 7200x0 --rotate left --output DP-4-2 --primary --mode 3840x2160 --pos 3360x400 --rotate normal --output DP-4-3 --off
+
