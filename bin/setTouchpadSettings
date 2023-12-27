@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Set the touchpad settings for daily use (use for awesome wm)
+
+echo "Enabling tapping"
+xinput set-prop "SYNA1D31:00 06CB:CD48 Touchpad" "libinput Tapping Enabled" 1
+echo "Enabling natural scrolling"
+xinput set-prop "SYNA1D31:00 06CB:CD48 Touchpad" "libinput Natural Scrolling Enabled" 1
+echo "Setting accelleration speed"
+xinput set-prop "SYNA1D31:00 06CB:CD48 Touchpad" "libinput Accel Speed" 0.5
+
