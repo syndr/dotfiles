@@ -67,6 +67,11 @@ alias k='kubectl'
 
 eval "$(starship init zsh)"
 
+# MCFly shell history management: https://github.com/cantino/mcfly
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=3
+export MCFLY_RESULTS=100
+export MCFLY_PROMPT="❯"
 eval "$(mcfly init zsh)"
 
 # Shell colors for dark backgrounds
