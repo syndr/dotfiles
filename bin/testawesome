@@ -2,10 +2,12 @@
 
 # Run awesome wm with a test config
 
-CONFIG_LOCATION="~/scripts/awesome-wm-config/rc.lua"
+CONFIG_LOCATION="~/.config/awesome/rc.lua"
 
 echo "Starting Xephyr..."
 Xephyr :5 -ac -br -noreset -screen 1920x1080 &
+
+sleep 5
 
 echo "Starting AwesomeWM..."
 DISPLAY=:5.0 awesome -c $CONFIG_LOCATION
