@@ -13,7 +13,7 @@ antigen use oh-my-zsh
 antigen bundle colored-man-pages
 #antigen bundle docker
 #antigen bundle gem
-antigen bundle git
+#antigen bundle git
 antigen bundle git-extras
 antigen bundle httpie
 #antigen bundle jsontools
