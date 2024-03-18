@@ -51,7 +51,7 @@ Plugin 'godlygeek/tabular'
 " Git command support in VIM!    https://vimawesome.com/plugin/fugitive-vim
 Plugin 'tpope/vim-fugitive'
 
-" Show git diffs while editing files:   https://vimawesome.com/plugin/vim-gitgutter
+" Show git diffs while editing files:   https://vimawesome.com/plugin/vim-gitgutter                ---- not currently working?
 Plugin 'airblade/vim-gitgutter'
 
 " Show tags in sidebar (show overview of file structure): https://vimawesome.com/plugin/tagbar
@@ -151,10 +151,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-" Set default paper size
-" THIS WORKS IN VIM NOT NVIM
-"set printoptions=paper:letter
 
 " Don't show default mode indicator
 set noshowmode
