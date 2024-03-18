@@ -1,0 +1,10 @@
+-- Show the undo history in a sidebar  https://github.com/mbbill/undotree
+
+return {
+  "mbbill/undotree",
+
+  config = function()
+    vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>')
+  end
+}
+
