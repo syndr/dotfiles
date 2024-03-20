@@ -20,7 +20,7 @@ return {
             require("telescope.themes").get_dropdown {
               -- even more opts
             }
-      
+
             -- pseudo code / specification for writing custom displays, like the one
             -- for "codeactions"
             -- specific_opts = {
