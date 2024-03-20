@@ -6,7 +6,7 @@ return {
 
   config = function()
     local wk = require('whichkey_setup')
-    
+
     -- TODO: Actually configure this based on https://github.com/AckslD/nvim-whichkey-setup.lua
 
   end

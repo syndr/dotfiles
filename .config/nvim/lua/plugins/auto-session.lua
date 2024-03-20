@@ -29,12 +29,14 @@ return {
         buftypes_to_ignore = {}, -- list of buffer types what should not be deleted from current session
         load_on_setup = true,
         theme_conf = { border = true },
-        previewer = true,
+        previewer = false,
       },
 
       vim.keymap.set("n", "<Leader>ls", require("auto-session.session-lens").search_session, {
         noremap = true,
       })
     }
+
+    vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
   end,
 }
