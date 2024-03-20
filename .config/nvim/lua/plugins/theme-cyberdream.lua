@@ -15,8 +15,8 @@ return {
 
             theme = {
               colors = {
-                fg = "#00a595",
-                grey = "#3f444d",
+                fg = "#00c2b0",
+                grey = "#4e545e",
               },
             }
         })
