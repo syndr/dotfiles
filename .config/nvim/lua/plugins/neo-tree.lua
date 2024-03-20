@@ -8,11 +8,13 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
     "3rd/image.nvim",
+    's1n7ax/nvim-window-picker',
   },
 
   config = function()
     require("neo-tree").setup({
       close_if_last_window = true,
+      auto_clean_after_session_restore = true,    -- Remove broken neo-tree buffers after session restore
       window = {
         position = "left",
       },
