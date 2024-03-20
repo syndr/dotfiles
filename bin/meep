@@ -1,0 +1,37 @@
+#!/bin/env bash
+# Toggle on or off a keyboard, based upon the device title
+# Update the following vars based upon the output of xinput list
+
+TARGET_KB_NAME='Ducky One 3'
+CORE_MOUSE_ID=2
+CORE_KB_ID=3
+
+echo "Looking for keyboard ids for $TARGET_KB_NAME"
+get_kb_id() {
+  xinput list | grep "$TARGET_KB_NAME" | cut -f2 | cut -d'=' -f2
+}
+
+ids=$(get_kb_id)
+
+detached_count=$(xinput list | grep "$TARGET_KB_NAME" | cut -f3 | grep -c 'floating')
+
+while IFS= read -r id; do
+  if [ -z "$id" ]; then
+    continue
+  fi
+
+  if [ $detached_count -eq 0 ]; then
+    echo "Detatching keyboard id $id"
+    xinput float $id
+  else
+    echo "Reattaching keyboard id $id to virtual core $CORE_KB_ID"
+    xinput reattach $id $CORE_KB_ID
+
+    if [ $? -ne 0 ]; then
+      echo "Attempting to reattach keyboard id $id to mouse virtual core $CORE_MOUSE_ID"
+      xinput reattach $id $CORE_MOUSE_ID
+    fi
+  fi
+
+done <<< "$ids"
+
