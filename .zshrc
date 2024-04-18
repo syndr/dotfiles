@@ -1,4 +1,4 @@
-export TERM='xterm-256color'
+#export TERM='xterm-256color'
 export EDITOR='/usr/bin/nvim'
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/linuxbrew/.linuxbrew/bin
@@ -83,6 +83,15 @@ export LS_COLORS
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+<<<<<<< Updated upstream
 
 export RANGER_DEVICONS_SEPARATOR='  '
 
+||||||| Stash base
+=======
+
+# Command completion settings
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+unsetopt completealiases
+>>>>>>> Stashed changes
