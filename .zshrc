@@ -68,6 +68,9 @@ alias k='kubectl'
 # Run things on the nvidia gpu
 alias nvexec='__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia'
 
+# Use a commonly known shell for SSH
+alias ssh='TERM=xterm-256color ssh'
+
 eval "$(starship init zsh)"
 
 # MCFly shell history management: https://github.com/cantino/mcfly
@@ -85,4 +88,9 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 export RANGER_DEVICONS_SEPARATOR='  '
+
+# Command completion settings
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+unsetopt completealiases
 
