@@ -2,7 +2,7 @@
 
 This repository encompasses my general workstation setup, and is meant to contain the full working configuration from new install to production machine.
 
-It makes use of the excellent versioning strategy outlined [here](https://www.atlassian.com/git/tutorials/dotfiles).
+It makes use of the versioning strategy outlined [here](https://www.atlassian.com/git/tutorials/dotfiles). If you use a different application/method for managing your dotfiles, the configuration stored in this repository should be fairly adaptable.
 
 # Installation
 

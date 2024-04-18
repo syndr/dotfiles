@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Fix the external screen layout
+
+echo Flipping the table...
+bash ~/.screenlayout/desktop_layout_alt2_inverted.sh
+
+sleep 5
+
+echo Picking things back up...
+bash ~/.screenlayout/desktop_layout_alt2.sh
+

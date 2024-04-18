@@ -13,7 +13,7 @@ antigen use oh-my-zsh
 antigen bundle colored-man-pages
 #antigen bundle docker
 #antigen bundle gem
-antigen bundle git
+#antigen bundle git
 antigen bundle git-extras
 antigen bundle httpie
 #antigen bundle jsontools
@@ -65,8 +65,16 @@ alias ll='exa -lhgum --git'
 # Kubernetes things
 alias k='kubectl'
 
+# Run things on the nvidia gpu
+alias nvexec='__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia'
+
 eval "$(starship init zsh)"
 
+# MCFly shell history management: https://github.com/cantino/mcfly
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=3
+export MCFLY_RESULTS=100
+export MCFLY_PROMPT="❯"
 eval "$(mcfly init zsh)"
 
 # Shell colors for dark backgrounds
@@ -75,3 +83,6 @@ export LS_COLORS
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
+
+export RANGER_DEVICONS_SEPARATOR='  '
+

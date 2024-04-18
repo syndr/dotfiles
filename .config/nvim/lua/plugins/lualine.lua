@@ -5,10 +5,10 @@ return {
   },
 
   config = function()
-    local cyberdream = require("lualine.themes.cyberdream")
+    --local cyberdream = require("lualine.themes.cyberdream")
     require('lualine').setup({
       options = {
-        theme = 'cyberdream'
+        theme = 'nightfly'
       },
 
       -- Include name of session in lualine
