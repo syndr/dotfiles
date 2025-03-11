@@ -12,5 +12,6 @@ return {
         vim.cmd("hi String guibg=#339922 ctermbg=NONE")
         vim.cmd("highlight SignColumn ctermbg=NONE")
         vim.cmd("highlight LineNr ctermbg=NONE")
+        vim.cmd("highlight String guibg=NONE ctermbg=NONE")
     end,
 }

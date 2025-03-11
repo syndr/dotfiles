@@ -60,7 +60,7 @@ antigen apply
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Use exa for ll, as it's super nice (you have to install exa)
-alias ll='exa -lhgum --git'
+alias ll='eza -lhgum --git'
 
 # Kubernetes things
 alias k='kubectl'
