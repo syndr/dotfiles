@@ -1,0 +1,143 @@
+-- WEZTERM GLOBAL CONFIGURATION
+
+
+-- Pull in the wezterm API
+local wezterm = require 'wezterm'
+
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+
+-- Runtime actions
+local act = wezterm.action
+
+-- Set the visual appearance
+config.color_scheme = 'Dark Matrix'
+config.window_background_opacity = 0.85
+config.use_fancy_tab_bar = false
+config.initial_cols = 140  -- Set the default width (columns)
+config.initial_rows = 40   -- Set the default height (rows)
+
+
+config.colors = {
+  tab_bar = {
+    -- The color of the strip that goes along the top of the window
+    -- (does not apply when fancy tab bar is in use)
+    background = '#0b0022',
+
+    -- The active tab is the one that has focus in the window
+    active_tab = {
+      -- The color of the background area for the tab
+      bg_color = '#006bbd',
+      -- The color of the text for the tab
+      fg_color = '#00c9ff',
+
+      -- Specify whether you want "Half", "Normal" or "Bold" intensity for the
+      -- label shown for this tab.
+      -- The default is "Normal"
+      intensity = 'Normal',
+
+      -- Specify whether you want "None", "Single" or "Double" underline for
+      -- label shown for this tab.
+      -- The default is "None"
+      underline = 'None',
+
+      -- Specify whether you want the text to be italic (true) or not (false)
+      -- for this tab.  The default is false.
+      italic = false,
+
+      -- Specify whether you want the text to be rendered with strikethrough (true)
+      -- or not for this tab.  The default is false.
+      strikethrough = false,
+    },
+
+    -- Inactive tabs are the tabs that do not have focus
+    inactive_tab = {
+      bg_color = '#014359',
+      fg_color = '#36858c',
+
+      -- The same options that were listed under the `active_tab` section above
+      -- can also be used for `inactive_tab`.
+    },
+
+    -- You can configure some alternate styling when the mouse pointer
+    -- moves over inactive tabs
+    inactive_tab_hover = {
+      bg_color = '#3b3052',
+      fg_color = '#909090',
+      italic = true,
+
+      -- The same options that were listed under the `active_tab` section above
+      -- can also be used for `inactive_tab_hover`.
+    },
+
+    -- The new tab button that let you create new tabs
+    new_tab = {
+      bg_color = '#00afff',
+      fg_color = '#252626',
+
+      -- The same options that were listed under the `active_tab` section above
+      -- can also be used for `new_tab`.
+    },
+
+    -- You can configure some alternate styling when the mouse pointer
+    -- moves over the new tab button
+    new_tab_hover = {
+      bg_color = '#3b3052',
+      fg_color = '#909090',
+      italic = true,
+
+      -- The same options that were listed under the `active_tab` section above
+      -- can also be used for `new_tab_hover`.
+    },
+  },
+}
+
+config.font = wezterm.font 'EnvyCodeR Nerd Font'
+config.font_size = 11
+
+
+-- Keybindings
+config.keys = {
+  { key = 'UpArrow', mods = 'SHIFT', action = act.ScrollByLine(-1) },
+  { key = 'DownArrow', mods = 'SHIFT', action = act.ScrollByLine(1) },
+}
+
+-- Mouse bindings
+config.mouse_bindings = {
+  {
+    event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(-1),
+  },
+  {
+    event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+    mods = 'SHIFT',
+    action = act.ScrollByLine(-5),
+  },
+  {
+    event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+    mods = 'SHIFT',
+    action = act.ScrollByLine(5),
+  },
+  {
+    event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+    mods = 'NONE',
+    action = act.ScrollByLine(1),
+  },
+
+    -- Prevent selecting the full line on a normal left click
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = wezterm.action.SelectTextAtMouseCursor 'Cell', -- Select just the character
+  },
+  -- Hold Shift to select text from cursor position instead of the full line
+  {
+    event = { Down = { streak = 1, button = 'Left' } },
+    mods = 'SHIFT',
+    action = wezterm.action.ExtendSelectionToMouseCursor 'Cell', -- Allows custom selection
+  },
+}
+
+-- and finally, return the configuration to wezterm
+return config
