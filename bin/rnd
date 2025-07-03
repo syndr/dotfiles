@@ -7,14 +7,14 @@ number=$1
 
 function lightbulb() {
     therandom=""
-    
+
     for i in $(seq 1 $number); do
         arandom=$((RANDOM % 10))
-        echo "BURT -> $arandom"
+        echo "🎲 $arandom"
         therandom="$therandom$arandom"
     done
-    
-    echo "💡 $therandom 💡"
+
+    echo "💡$therandom 💡"
 }
 
 lightbulb $number

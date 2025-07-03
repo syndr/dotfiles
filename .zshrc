@@ -56,6 +56,9 @@ antigen apply
 # Set GOROOT to work with asdf versions
 #. ~/.asdf/plugins/golang/set-env.zsh
 
+# Launch neovide in the background by default
+alias neovide='neovide  < /dev/null &'
+
 # For git dotfiles configuration
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
@@ -64,6 +67,10 @@ alias ll='eza -lhgum --git'
 
 # Kubernetes things
 alias k='kubectl'
+
+# Terraform things
+alias tf='tofu'
+alias tftui='tftui -e tofu'
 
 # Run things on the nvidia gpu
 alias nvexec='__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia'
@@ -93,4 +100,6 @@ export RANGER_DEVICONS_SEPARATOR='  '
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 unsetopt completealiases
+
+alias cpnow='echo -n $(date --utc +%Y-%m-%dT%H:%M:%S.%NZ) | wl-copy'
 

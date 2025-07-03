@@ -11,7 +11,7 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 -- Set the visual appearance
-config.color_scheme = 'Dark Matrix'
+config.color_scheme = 'Snazzy'
 config.window_background_opacity = 0.85
 config.use_fancy_tab_bar = false
 config.initial_cols = 140  -- Set the default width (columns)
@@ -19,6 +19,11 @@ config.initial_rows = 40   -- Set the default height (rows)
 
 
 config.colors = {
+  -- The default text color
+  foreground = '#5991e6',
+  -- The default background color (black)
+  background = '#000000',
+
   tab_bar = {
     -- The color of the strip that goes along the top of the window
     -- (does not apply when fancy tab bar is in use)
@@ -27,9 +32,9 @@ config.colors = {
     -- The active tab is the one that has focus in the window
     active_tab = {
       -- The color of the background area for the tab
-      bg_color = '#006bbd',
+      bg_color = '#0cd900',
       -- The color of the text for the tab
-      fg_color = '#00c9ff',
+      fg_color = '#000000',
 
       -- Specify whether you want "Half", "Normal" or "Bold" intensity for the
       -- label shown for this tab.
@@ -52,8 +57,8 @@ config.colors = {
 
     -- Inactive tabs are the tabs that do not have focus
     inactive_tab = {
-      bg_color = '#014359',
-      fg_color = '#36858c',
+      bg_color = '#32852d',
+      fg_color = '#0bbd00',
 
       -- The same options that were listed under the `active_tab` section above
       -- can also be used for `inactive_tab`.
@@ -62,9 +67,9 @@ config.colors = {
     -- You can configure some alternate styling when the mouse pointer
     -- moves over inactive tabs
     inactive_tab_hover = {
-      bg_color = '#3b3052',
-      fg_color = '#909090',
-      italic = true,
+      bg_color = '#2db824',
+      fg_color = '#3af765',
+      italic = false,
 
       -- The same options that were listed under the `active_tab` section above
       -- can also be used for `inactive_tab_hover`.
@@ -72,8 +77,8 @@ config.colors = {
 
     -- The new tab button that let you create new tabs
     new_tab = {
-      bg_color = '#00afff',
-      fg_color = '#252626',
+      bg_color = '#00ff3a',
+      fg_color = '#005226',
 
       -- The same options that were listed under the `active_tab` section above
       -- can also be used for `new_tab`.
@@ -82,9 +87,9 @@ config.colors = {
     -- You can configure some alternate styling when the mouse pointer
     -- moves over the new tab button
     new_tab_hover = {
-      bg_color = '#3b3052',
-      fg_color = '#909090',
-      italic = true,
+      bg_color = '#00ffa5',
+      fg_color = '#000000',
+      italic = false,
 
       -- The same options that were listed under the `active_tab` section above
       -- can also be used for `new_tab_hover`.
@@ -138,6 +143,28 @@ config.mouse_bindings = {
     action = wezterm.action.ExtendSelectionToMouseCursor 'Cell', -- Allows custom selection
   },
 }
+
+-- Tab configuration
+wezterm.on("rename-tab", function(window, pane)
+  window:perform_action(
+    wezterm.action.PromptInputLine {
+      description = "Enter new name for tab",
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    },
+    pane
+  )
+end)
+
+-- Add the rename-tab keybinding to existing keybindings
+table.insert(config.keys, {
+  key = "r",
+  mods = "CTRL|SHIFT",
+  action = wezterm.action.EmitEvent("rename-tab"),
+})
 
 -- and finally, return the configuration to wezterm
 return config
