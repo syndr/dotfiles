@@ -14,8 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
 
+-- Use <space> as the leader key
 vim.g.mapleader = " "
 
 require("lazy").setup("plugins", opts)
 require("vim-options")
+require("keybindings")
 

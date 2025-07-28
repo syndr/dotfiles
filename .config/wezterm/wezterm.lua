@@ -97,9 +97,14 @@ config.colors = {
   },
 }
 
-config.font = wezterm.font 'EnvyCodeR Nerd Font'
+-- Font options
+config.font = wezterm.font 'IosevkaTerm NF'
 config.font_size = 11
-
+config.harfbuzz_features = {
+	"dlig=1", -- Ligatures
+  "calt=1",
+  "clig=1"
+}
 
 -- Keybindings
 config.keys = {

@@ -12,26 +12,40 @@ if vim.g.neovide then
   vim.g.neovide_normal_opacity = 0.8
 
   -- Set cursor FX
-  vim.g.neovide_cursor_vfx_mode = "wireframe"
-  --vim.g.neovide_cursor_vfx_mode = "pixiedust"
-
-
-  -- Add copy/past keybindings
-  vim.keymap.set('n', '<C-S-s>', ':w<CR>') -- Save
-  vim.keymap.set('v', '<C-S-c>', '"+y') -- Copy
-  vim.keymap.set('n', '<C-S-v>', '"+P') -- Paste normal mode
-  vim.keymap.set('v', '<C-S-v>', '"+P') -- Paste visual mode
-  vim.keymap.set('c', '<C-S-v>', '<C-R>+') -- Paste command mode
-  vim.keymap.set('i', '<C-S-v>', '<ESC>l"+Pli') -- Paste insert mode
-  -- Set Ctrl+Shift+V to paste from system clipboard
-  --vim.keymap.set('n', '<C-S-v>', '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
-  --vim.keymap.set('i', '<C-S-v>', '<C-r>+', { noremap = true, silent = true, desc = "Paste from system clipboard" })
-  --vim.keymap.set('v', '<C-S-v>', '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
+  --vim.g.neovide_cursor_vfx_mode = "wireframe"
+  vim.g.neovide_cursor_vfx_mode = "pixiedust"
 end
 
--- Allow clipboard copy paste in neovim
-vim.api.nvim_set_keymap('', '<C-S-v>', '+p<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('!', '<C-S-v>', '<C-R>+', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('t', '<C-S-v>', '<C-R>+', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<C-S-v>', '<C-R>+', { noremap = true, silent = true})
+-- Use treesitter for syntax highlighting
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
+})
 
+-- Enable treesitter folding
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+-- Use experimental indentation from treesitter
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+-- Store undo history in a file
+vim.opt.undofile = true
+
+-- Mode is shown in the statusline, so we don't need to show it in the command line
+vim.opt.showmode = false
+
+-- Indent wrapped lines to match the start of the line
+vim.opt.breakindent = true
+
+-- Search configuration
+vim.opt.ignorecase = true -- Ignore case in search patterns
+vim.opt.smartcase = true -- Override ignorecase if search pattern contains uppercase letters
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+-- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 5
