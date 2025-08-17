@@ -1,3 +1,4 @@
 #!/bin/bash
 
-sudo tailscale up --accept-routes --accept-dns --shields-up
+sudo tailscale up --accept-routes --accept-dns --shields-up --operator=syndr
+

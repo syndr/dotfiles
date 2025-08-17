@@ -167,7 +167,7 @@ return {
       function()
         local msg = 'No Active Lsp'
         local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-        local clients = vim.lsp.get_active_clients()
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then
           return msg
         end
@@ -197,6 +197,12 @@ return {
     }
 
     -- Add components to right sections
+    ins_right {
+      'filetype',
+      icons_enabled = true,
+      color = { fg = colors.green, gui = 'italic' },
+    }
+
     ins_right {
       'o:encoding', -- option component same as &encoding in viml
       fmt = string.upper, -- I'm not sure why it's upper case either ;)

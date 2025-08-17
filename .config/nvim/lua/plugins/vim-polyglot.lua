@@ -7,7 +7,7 @@ return {
   config = function()
     -- brighten the name: key
     vim.g.ansible_name_highlight = 'b'
-    
+
     -- highlight additional keywords
     vim.g.ansible_extra_keyworkds_highlight = 1
 

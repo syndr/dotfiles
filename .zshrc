@@ -1,7 +1,7 @@
 export TERM='xterm-256color'
 export EDITOR='/usr/bin/nvim'
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/linuxbrew/.linuxbrew/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.npm-global/bin
 
 source ~/.antigen/antigen.zsh
 
@@ -56,14 +56,21 @@ antigen apply
 # Set GOROOT to work with asdf versions
 #. ~/.asdf/plugins/golang/set-env.zsh
 
+# Launch neovide in the background by default
+alias neovide='neovide  < /dev/null &'
+
 # For git dotfiles configuration
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Use exa for ll, as it's super nice (you have to install exa)
-alias ll='exa -lhgum --git'
+alias ll='eza -lhgum --git'
 
 # Kubernetes things
 alias k='kubectl'
+
+# Terraform things
+alias tf='tofu'
+alias tftui='tftui -e tofu'
 
 # Run things on the nvidia gpu
 alias nvexec='__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia'
@@ -93,4 +100,15 @@ export RANGER_DEVICONS_SEPARATOR='  '
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 unsetopt completealiases
+
+alias cpnow='echo -n $(date --utc +%Y-%m-%dT%H:%M:%S.%NZ) | wl-copy'
+
+# Use a docker image for SSH (old network devices)
+oldssh() {
+  docker run --rm -it \
+    -v "$HOME/.ssh:/home/user/.ssh:ro" \
+    -u "$(id -u):$(id -g)" \
+    -w /home/user \
+    sshd:7.0 -F /home/user/.ssh/config.openssh7 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$@"
+}
 
