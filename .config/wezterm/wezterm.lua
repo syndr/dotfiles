@@ -20,7 +20,7 @@ config.initial_rows = 40   -- Set the default height (rows)
 
 config.colors = {
   -- The default text color
-  foreground = '#5991e6',
+  foreground = '#27b182',
   -- The default background color (black)
   background = '#000000',
 

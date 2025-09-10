@@ -104,11 +104,5 @@ unsetopt completealiases
 alias cpnow='echo -n $(date --utc +%Y-%m-%dT%H:%M:%S.%NZ) | wl-copy'
 
 # Use a docker image for SSH (old network devices)
-oldssh() {
-  docker run --rm -it \
-    -v "$HOME/.ssh:/home/user/.ssh:ro" \
-    -u "$(id -u):$(id -g)" \
-    -w /home/user \
-    sshd:7.0 -F /home/user/.ssh/config.openssh7 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$@"
-}
+source ~/scripts/ssh_7/bash.env
 
