@@ -17,6 +17,18 @@ config.use_fancy_tab_bar = false
 config.initial_cols = 140  -- Set the default width (columns)
 config.initial_rows = 40   -- Set the default height (rows)
 
+-- Theme the Command Palette (Launcher)
+-- The background of the palette window
+config.command_palette_bg_color = '#000000'
+-- The default foreground color for prompts and unselected items
+config.command_palette_fg_color = '#00FF00'
+
+-- Font used in the palette window (needs nightly build)
+--config.command_palette_font = wezterm.font 'IosevkaTerm NF'
+config.command_palette_font_size = 11.0
+
+-- Stop annoying alerts about missing glyphs in the font
+config.warn_about_missing_glyphs = false
 
 config.colors = {
   -- The default text color
