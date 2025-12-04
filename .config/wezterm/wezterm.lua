@@ -17,17 +17,29 @@ config.use_fancy_tab_bar = false
 config.initial_cols = 140  -- Set the default width (columns)
 config.initial_rows = 40   -- Set the default height (rows)
 
+-- Theme the Command Palette (Launcher)
+-- The background of the palette window
+config.command_palette_bg_color = '#000000'
+-- The default foreground color for prompts and unselected items
+config.command_palette_fg_color = '#00FF00'
+
+-- Font used in the palette window (needs nightly build)
+--config.command_palette_font = wezterm.font 'IosevkaTerm NF'
+config.command_palette_font_size = 11.0
+
+-- Stop annoying alerts about missing glyphs in the font
+config.warn_about_missing_glyphs = false
 
 config.colors = {
   -- The default text color
-  foreground = '#5991e6',
+  foreground = '#27b182',
   -- The default background color (black)
   background = '#000000',
 
   tab_bar = {
     -- The color of the strip that goes along the top of the window
     -- (does not apply when fancy tab bar is in use)
-    background = '#0b0022',
+    background = '#041002',
 
     -- The active tab is the one that has focus in the window
     active_tab = {
@@ -99,7 +111,8 @@ config.colors = {
 
 -- Font options
 config.font = wezterm.font 'IosevkaTerm NF'
-config.font_size = 11
+config.font_size = 10
+config.cell_width = 0.9
 config.harfbuzz_features = {
 	"dlig=1", -- Ligatures
   "calt=1",
