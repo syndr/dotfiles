@@ -18,7 +18,7 @@ end
 
 -- Use treesitter for syntax highlighting
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '*' },
+  pattern = { '<filetype>' },
   callback = function() vim.treesitter.start() end,
 })
 
