@@ -7,8 +7,6 @@ vim.keymap.set('v', '<C-S-v>', '"+P', { noremap = true, silent = true, desc = "P
 vim.keymap.set('c', '<C-S-v>', '<C-R>+', { noremap = true, silent = true, desc = "Paste from system clipboard" }) -- Paste command mode
 vim.keymap.set('i', '<C-S-v>', '<ESC>l"+Pli', { noremap = true, silent = true, desc = "Paste from system clipboard" }) -- Paste insert mode
 
-
-
 -- Allow clipboard copy paste in neovim
 vim.api.nvim_set_keymap('', '<C-S-v>', '+p<CR>', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('!', '<C-S-v>', '<C-R>+', { noremap = true, silent = true})
