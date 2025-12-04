@@ -178,6 +178,9 @@ return {
     pattern = "CodeCompanion*",
     group = group,
     callback = function(request)
+      if request.match == "CodeCompanionContextChanged" then
+        return
+      end
       if request.match == "CodeCompanionChatSubmitted" then
         return
       end
