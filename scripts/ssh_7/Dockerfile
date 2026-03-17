@@ -38,7 +38,7 @@ RUN ssh -V
 
 # Create group and user with specified UID/GID
 RUN groupadd -g ${USER_GID} ${USERNAME} || true && \
-    useradd -m -u ${USER_UID} -g ${USER_GID} -s /bin/bash ${USERNAME} || true
+    useradd -l -m -u ${USER_UID} -g ${USER_GID} -s /bin/bash ${USERNAME} || true
 
 # Give user ownership of home directory (home created by -m)
 RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}

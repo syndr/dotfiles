@@ -14,6 +14,19 @@ local act = wezterm.action
 config.color_scheme = 'Snazzy'
 config.window_background_opacity = 0.85
 config.use_fancy_tab_bar = false
+
+-- Performance & GPU Configuration
+config.front_end = 'WebGpu'
+config.webgpu_power_preference = 'HighPerformance'
+-- Dynamically select the Intel GPU
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+  if gpu.vendor == 32902 then -- Intel
+    config.webgpu_preferred_adapter = gpu
+    break
+  end
+end
+config.max_fps = 144
+
 config.initial_cols = 140  -- Set the default width (columns)
 config.initial_rows = 40   -- Set the default height (rows)
 
@@ -39,7 +52,7 @@ config.colors = {
   tab_bar = {
     -- The color of the strip that goes along the top of the window
     -- (does not apply when fancy tab bar is in use)
-    background = '#0b0022',
+    background = '#041002',
 
     -- The active tab is the one that has focus in the window
     active_tab = {
@@ -110,8 +123,9 @@ config.colors = {
 }
 
 -- Font options
-config.font = wezterm.font 'IosevkaTerm NF'
-config.font_size = 11
+config.font = wezterm.font 'VictorMono Nerd Font'
+config.font_size = 10
+config.cell_width = 0.9
 config.harfbuzz_features = {
 	"dlig=1", -- Ligatures
   "calt=1",

@@ -18,8 +18,11 @@ return {
     terminal = {
       split_side = "right", -- "left" or "right"
       split_width_percentage = 0.30,
-      provider = "auto", -- "auto", "snacks", or "native"
+      provider = "snacks", -- "auto", "snacks", or "native"
       auto_close = true,
+      snacks_win_opts = {
+        width = 120, -- Fixed width in columns
+      },
     },
 
     -- Diff Integration
@@ -27,6 +30,7 @@ return {
       auto_close_on_accept = true,
       vertical_split = true,
       open_in_current_tab = true,
+      keep_terminal_focus = true,
     },
   },
   keys = {
