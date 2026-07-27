@@ -1,6 +1,13 @@
-## Create a Docker image to run legacy Openssh 7.0 client
+## Create a container image to run legacy Openssh 7.0 client
 #
-# Build with: docker build --build-arg USER_UID=$(id -u) --build-arg USER_GID=$(id -g) -t openssh7-client:7.0 .
+# Build with Docker:
+#   docker build --build-arg USER_UID=$(id -u) --build-arg USER_GID=$(id -g) -t openssh7-client:7.0 .
+#
+# Build with Podman (rootless is fine):
+#   podman build --build-arg USER_UID=$(id -u) --build-arg USER_GID=$(id -g) -t openssh7-client:7.0 .
+#
+# On SELinux-enforcing hosts you may need to append ,z (or ,Z) to the ~/.ssh
+# bind mount in bash.env so the container can read the mounted keys.
 #
 
 
