@@ -1,2 +1,8 @@
 //@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
-@theme "/usr/share/rofi/themes/base16-greenscreen.rasi"
+@theme "~/.config/rofi/themes/base16-greenscreen.rasi"
+
+configuration {
+    show-icons: true;
+    icon-theme: "Abyss-ENVY-Suru-GLOW";
+    drun-display-format: "{icon} {name}";
+}
