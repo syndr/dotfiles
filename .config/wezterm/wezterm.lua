@@ -10,6 +10,11 @@ local config = wezterm.config_builder()
 -- Runtime actions
 local act = wezterm.action
 
+-- Pi's V3D GPU: WebGpu (Vulkan) never maps a window; OpenGL panics because
+-- V3D only offers GLSL 3.00 ES without GL_EXT_blend_func_extended. Software
+-- rendering is the reliable fallback on this hardware / wezterm build.
+config.front_end = "Software"
+
 -- Set the visual appearance
 config.color_scheme = 'Snazzy'
 config.window_background_opacity = 0.85
