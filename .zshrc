@@ -106,3 +106,11 @@ alias cpnow='echo -n $(date --utc +%Y-%m-%dT%H:%M:%S.%NZ) | wl-copy'
 # Use a docker image for SSH (old network devices)
 source ~/scripts/ssh_7/bash.env
 
+
+# ---- sudo askpass wiring (bash/zsh compatible) ----
+# Makes non-TTY sudo (e.g. Claude Code's Bash tool) prompt via rofi,
+# while leaving interactive terminal sudo behavior untouched.
+export SUDO_ASKPASS="$HOME/.local/bin/rofi-askpass"
+sudo() {
+    if [[ -t 0 ]]; then command sudo "$@"; else command sudo -A "$@"; fi
+}
