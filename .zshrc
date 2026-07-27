@@ -1,7 +1,7 @@
 export TERM='xterm-256color'
 export EDITOR='/usr/bin/nvim'
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.npm-global/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/home/linuxbrew/.linuxbrew/bin:$HOME/.npm-global/bin:$HOME/.bun/bin
 
 source ~/.antigen/antigen.zsh
 
